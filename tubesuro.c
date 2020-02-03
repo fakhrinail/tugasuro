@@ -118,6 +118,76 @@ void PilihMenu(int opsi) //kegiatan yang bisa dipilih
             return BalikMenu;
         }
     }
+    else if (opsi == 7) //spa
+    {
+         if (*pmny >= 25)
+        {
+            *pmny -= 25;
+            *phapp += 25;
+            *psoc += 25;
+            *phyg += 25;
+            BalikMenu = true;
+            return BalikMenu;
+        }
+        else
+        {
+            printf("Maaf, kulit Anda sudah terlalu mulus \n");
+            BalikMenu = true;
+            return BalikMenu;
+        }
+    }
+    else if (opsi == 8) //minum kopi 1 galon
+    {
+         if (*phlth >= 25 && *pmny >= 25)
+        {
+            *pmny -= 25;
+            *phapp += 25;
+            *phlth -= 25;
+            *phyg -= 25;
+            BalikMenu = true;
+            return BalikMenu;
+        }
+        else
+        {
+            printf("Maaf, Anda sudah kelebihan kafein \n");
+            BalikMenu = true;
+            return BalikMenu;
+        }
+    }
+    else if (opsi == 9) //kerja sampingan
+    {
+         if (*pmny < 1000)
+        {
+            *pmny += 25;
+            *phapp += 25;
+            *psoc += 25;
+            *phyg -= 25;
+            BalikMenu = true;
+            return BalikMenu;
+        }
+        else
+        {
+            printf("Maaf, Anda sudah terlalu kaya, silahkan hamburkan uang Anda terlebih dahulu \n");
+            BalikMenu = true;
+            return BalikMenu;
+        }
+    }
+    else if (opsi == 10) //mandi
+    {
+         if (*phyg < 100)
+        {
+            *phapp += 25;
+            *phyg += 25;
+            BalikMenu = true;
+            return BalikMenu;
+        }
+        else
+        {
+            printf("Maaf, 99% kotoran di tubuh anda sudah hilang \n");
+            BalikMenu = true;
+            return BalikMenu;
+        }
+    }
 }
 
 
@@ -156,9 +226,11 @@ int main()
                 printf("4. Makan Indomie \n");
                 printf("5. Skip kelas \n");
                 printf("6. Meni pedi \n");
-                printf("7. Mandi air susu \n");
+                printf("7. Spa \n");
                 printf("8. Minum kopi 1 galon \n");
-                printf("9. ");
+                printf("9. Kerja sampingan \n");
+                printf("10. Mandi \n");
+                printf("Masukkan nomor kegiatan yang ingin Anda lakukan: ");
                 scanf("%d", &opsi);
                 PilihMenu(opsi);
             }
