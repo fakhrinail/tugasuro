@@ -126,7 +126,7 @@ int main()
     bool BalikMenu = true;
     bool InfiniteLoop = true;
     int opsi;
-    printf("Selamat datang di Hilmy's Life!")
+    printf("Selamat datang di Hilmy's Life!");
     while (InfiniteLoop == true) //program infinite loop
     {
         BalikMenu = false;
@@ -138,6 +138,11 @@ int main()
         {
             while (BalikMenu == false)
             {
+                if (*phlth==0) { //kondisi mati
+    				printf("Selamat! Hilmy sudah berada di sisi-Nya\n");
+    				BalikMenu = true;
+    				InfiniteLoop = false;
+                }
                 printf("Berikut adalah stats anda sekarang: \n");
                 printf("Happiness : %d\n", *phapp);
                 printf("Hygiene : %d\n", *phyg);
