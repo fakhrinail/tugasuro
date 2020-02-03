@@ -60,11 +60,15 @@ void PilihMenu(int opsi) //kegiatan yang bisa dipilih
             BalikMenu = true;
             return BalikMenu;
         }
-        else
+        else if (*phlth >0)
         {
             printf("Maaf, Anda perlu istirahat \n");
             BalikMenu = true;
             return BalikMenu;
+        }
+        else 
+        {
+        	printf("Selamat! Hilmy sudah berada di sisi-Nya \n");
         }
     }
     else if (opsi == 4) //makan indomie
@@ -200,7 +204,7 @@ int main()
     while (InfiniteLoop == true) //program infinite loop
     {
         BalikMenu = false;
-        if (phlth == 0) //kondisi mati
+        if (*phlth == 0) //kondisi mati
         {
             printf("Selamat! Hilmy sudah berada di sisi-Nya");
         }
