@@ -16,10 +16,12 @@ int *psoc = &soc;
 int *phlth = &hlth;
 int *pmny = &mny;
 
-void PilihMenu(int opsi){ //kegiatan yang bisa dipilih
+void PilihMenu(int opsi) //kegiatan yang bisa dipilih
+{
     if (opsi == 1) //hedon bareng temen
     {
-        if (*pmny >= 25){
+        if (*pmny >= 25)
+        {
             *pmny -= 25;
             *phapp += 25;
             *psoc += 25;
@@ -28,7 +30,7 @@ void PilihMenu(int opsi){ //kegiatan yang bisa dipilih
         }
         else
         {
-            printf("Maaf, saldo Anda tidak mencukupi");
+            printf("Maaf, saldo Anda tidak mencukupi \n");
             BalikMenu = true;
             return BalikMenu;
         }
@@ -45,7 +47,7 @@ void PilihMenu(int opsi){ //kegiatan yang bisa dipilih
         }
         else
         {
-            printf("Maaf, Anda perlu bersosialisasi");
+            printf("Maaf, Anda perlu bersosialisasi \n");
             BalikMenu = true;
             return BalikMenu;
         }
@@ -54,41 +56,88 @@ void PilihMenu(int opsi){ //kegiatan yang bisa dipilih
     {
         if (*phlth >= 25)
         {
-            *phlth -= 25
+            *phlth -= 25;
             BalikMenu = true;
             return BalikMenu;
         }
         else
         {
-            printf("Maaf, Anda perlu istirahat");
+            printf("Maaf, Anda perlu istirahat \n");
             BalikMenu = true;
             return BalikMenu;
         }
     }
     else if (opsi == 4) //makan indomie
     {
-
+        if (*phlth >= 25)
+        {
+            *phlth -= 25;
+            *phapp += 25;
+            *pmny -= 25;
+            BalikMenu = true;
+            return BalikMenu;
+        }
+        else
+        {
+            printf("Maaf, Anda sudah hampir gagal ginjal \n");
+            BalikMenu = true;
+            return BalikMenu;
+        }
     }
-
+    else if (opsi == 5) //skip kelas
+    {
+         if (*pmny >= 25)
+        {
+            *pmny -= 25;
+            *phapp += 25;
+            *psoc += 25;
+            BalikMenu = true;
+            return BalikMenu;
+        }
+        else
+        {
+            printf("Maaf, Anda masih kurang imba \n");
+            BalikMenu = true;
+            return BalikMenu;
+        }
+    }
+    else if (opsi == 6) //meni pedi
+    {
+         if (*pmny >= 25)
+        {
+            *pmny -= 25;
+            *phapp += 25;
+            *psoc += 25;
+            BalikMenu = true;
+            return BalikMenu;
+        }
+        else
+        {
+            printf("Maaf, Anda kurang kaya \n");
+            BalikMenu = true;
+            return BalikMenu;
+        }
+    }
 }
 
 
-int main(){
+int main()
+{
     bool BalikMenu = true;
     bool InfiniteLoop = true;
     int opsi;
+    printf("Selamat datang di Hilmy's Life!")
     while (InfiniteLoop == true) //program infinite loop
     {
-        BalikMenu = false; 
-        if (*phlth == 0) //kondisi mati
+        BalikMenu = false;
+        if (phlth == 0) //kondisi mati
         {
             printf("Selamat! Hilmy sudah berada di sisi-Nya");
         }
         else //jika health belum 0 akan infinite loop
         {
-            while (BalikMenu == false) 
+            while (BalikMenu == false)
             {
-                printf("Selamat Datang di Hilmy's Life! \n");
                 printf("Berikut adalah stats anda sekarang: \n");
                 printf("Happiness : %d\n", *phapp);
                 printf("Hygiene : %d\n", *phyg);
@@ -101,10 +150,13 @@ int main(){
                 printf("3. Belajar sampe pagi \n");
                 printf("4. Makan Indomie \n");
                 printf("5. Skip kelas \n");
+                printf("6. Meni pedi \n");
+                printf("7. Mandi air susu \n");
+                printf("8. Minum kopi 1 galon \n");
+                printf("9. ");
                 scanf("%d", &opsi);
-                PilihMenu(int opsi);
+                PilihMenu(opsi);
             }
         }
     }
-
 }
